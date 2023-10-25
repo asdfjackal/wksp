@@ -1,3 +1,23 @@
-fn main() {
-    println!("Hello, world!");
+use clap::Parser;
+
+/// Search for a pattern in a file and display the lines that contain it.
+#[derive(Parser, Debug)]
+struct Cli {
+    /// The pattern to look for
+    pattern: String,
+    // /// The path to the file to read
+    // path: std::path::PathBuf,
 }
+
+fn main() {
+    let args = Cli::parse();
+    match args.pattern.as_str() {
+        "start" => start(),
+        "stop" => stop(),
+        _ => println!("Invalid command"),
+    }
+}
+
+fn start() {}
+
+fn stop() {}
